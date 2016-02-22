@@ -1,71 +1,37 @@
+//Colors
 $cream: #faf7f3;
 $green: #748F30;
-$light-green: #c3ed5a;
+$light-green: lighten($green, 40%);
 $border-color: #283325;
+
+//Fonts
 $body: 'Droid Sans', sans-serif;
 $header: 'Lora', serif;
 
-#zen-intro {
-  header {
-    border: 1px solid red;
-    background-image: url("../img/garden.png");
-    height: 500px;
-    h1, h2 {
-      color: white;
-      padding-right: 5%;
-      text-align: right;
-    }
-    h1 {
-      padding-top: 3%;
-    }
-  }
-  .summary {
-    font-size: 14px;
-    text-align: center;
-    line-height: 10px;
-  }
+//Pixels
+$buttonPadding: 8px;
+$bodyFont: 14px;
+$smallDesktop: 1461px;
+$tablet: 950px;
+$mobile: 500px;
+
+
+
+@mixin button ($color1, $color2) {
+  border: 2px solid $color1;
+  background-color: $color2;
+  color: $color1;
 }
 
-.main, .preamble {
+%content {
   background-color: $cream;
   padding: 3%;
   padding-left: 12%;
   border: 1px solid $border-color;
   margin-bottom: 25px;
-  p {
-    font-size: 15px;
-    font-family: $body;
+  @media screen and (max-width: $smallDesktop){
+    padding-left: 3%;
   }
-  h3 {
-    color: $green;
-    font-size: 20px;
-    padding-right: 10%;
-    text-align: center;
-  }
-}
-
-.sidebar {
-  position: absolute;
-  top: 28%;
-  left: 7%;
-  width: 12%;
-  background-color: $green;
-  padding: 1.5%;
-  ul {
-    padding-left: 15px;
-  }
-    h3, li, a {
-      color:$cream;
-      list-style: none;
-    }
-    li {
-      padding-bottom: 5px;
-      font-family: $body;
-      font-size: 15px;
-    }
-    a:hover {
-      color: #c3ed5a;
-    }
 }
 
 body {
@@ -80,6 +46,156 @@ body {
     color: $green;
     &:hover {
       color: $light-green;
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    width: 95%;
+  }
+}
+
+#zen-intro {
+  header {
+    background-image: url("../img/garden.png");
+    height: 500px;
+    h1, h2 {
+      color: white;
+      padding-right: 5%;
+      text-align: right;
+    }
+    h1 {
+      padding-top: 3%;
+    }
+  }
+  .summary {
+    font-size: $bodyFont;
+    text-align: center;
+    line-height: 10px;
+  }
+  @media screen and (max-width: $tablet) {
+    header {
+      h1, h2 {
+        text-align: center;
+      }
+      h1 {
+        padding-top: 30%;
+      }
+    }
+    .summary {
+      line-height: 20px;
+    }
+  }
+}
+
+.main, .preamble {
+  @extend %content;
+  p {
+    font-size: $bodyFont;
+    font-family: $body;
+    margin-top: 0px;
+  }
+  h3 {
+    color: $border-color;
+    font-size: $bodyFont + 2px;
+    padding-top: 50px;
+    margin-bottom: 0px;
+    padding-right: 10%;
+    text-align: center;
+    background-image: url("../img/straight-ribbon.png");
+    background-repeat: no-repeat;
+    background-position: 42% 28%;
+    height: 100px;
+  }
+  &:hover {
+    background-color: lighten(black, 95%);
+  }
+  @media screen and (max-width: $smallDesktop){
+    padding-top: 0;
+  }
+  @media screen and (max-width: $mobile) {
+    h3 {
+      background-position: 15% 50%;
+      font-size: $bodyFont + 1px;
+      padding-left: 20px;
+    }
+  }
+}
+
+.design-archives {
+  ul li:last-child {
+    margin-top: 10px;
+    border-bottom: none;
+  }
+  ul li:last-child a {
+    padding: $buttonPadding;
+    @include button($cream, $border-color);
+    &:hover {
+      @include button($border-color, $cream);
+    }
+  }
+  @media screen and (max-width: $smallDesktop) {
+    ul li:last-child {
+      margin-top: 0px;
+    }
+  }
+}
+
+.sidebar {
+  position: relative;
+  bottom: 2100px;
+  right:17%;
+  width: 12%;
+  min-width: 200px;
+  margin-left: 25px;
+  background-color: transparentize($green, .1);
+  padding: 1.5%;
+  border-radius: 15px;
+  box-shadow: 3px 3px 26px 0px rgba(40,51,37,0.5);
+  ul {
+    padding-left: 5px;
+  }
+  h3, li, a {
+    color:$cream;
+    list-style: none;
+  }
+  li {
+    padding: 5px 0;
+    font-family: $body;
+    font-size: $bodyFont;
+    border-bottom: 1px solid white;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      color: #c3ed5a;
+    }
+  }
+  .resources, .archives, .select {
+    color: $border-color;
+  }
+  @media screen and (max-width: $smallDesktop) {
+    font-size: $bodyFont - 2px;
+    padding: $buttonPadding * 2;
+    overflow: auto;
+    position: static;
+    width: 97%;
+    margin-left: 0px;
+    min-height: 15%;
+    padding-right: 0px;
+    margin-bottom: 50px;
+    .design-archives, .resources{
+      clear: both;
+    }
+    li {
+      float: left;
+      display: inline-block;
+      padding: 5px;
+      border-bottom: none;
+    }
+    a {
+      text-decoration: underline;
+    }
+    .resources, .archives {
+      padding-top: 2%;
     }
   }
 }
