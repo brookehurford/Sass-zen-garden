@@ -1,0 +1,85 @@
+$cream: #faf7f3;
+$green: #748F30;
+$light-green: #c3ed5a;
+$border-color: #283325;
+$body: 'Droid Sans', sans-serif;
+$header: 'Lora', serif;
+
+#zen-intro {
+  header {
+    border: 1px solid red;
+    background-image: url("../img/garden.png");
+    height: 500px;
+    h1, h2 {
+      color: white;
+      padding-right: 5%;
+      text-align: right;
+    }
+    h1 {
+      padding-top: 3%;
+    }
+  }
+  .summary {
+    font-size: 14px;
+    text-align: center;
+    line-height: 10px;
+  }
+}
+
+.main, .preamble {
+  background-color: $cream;
+  padding: 3%;
+  padding-left: 12%;
+  border: 1px solid $border-color;
+  margin-bottom: 25px;
+  p {
+    font-size: 15px;
+    font-family: $body;
+  }
+  h3 {
+    color: $green;
+    font-size: 20px;
+    padding-right: 10%;
+    text-align: center;
+  }
+}
+
+.sidebar {
+  position: absolute;
+  top: 28%;
+  left: 7%;
+  width: 12%;
+  background-color: $green;
+  padding: 1.5%;
+  ul {
+    padding-left: 15px;
+  }
+    h3, li, a {
+      color:$cream;
+      list-style: none;
+    }
+    li {
+      padding-bottom: 5px;
+      font-family: $body;
+      font-size: 15px;
+    }
+    a:hover {
+      color: #c3ed5a;
+    }
+}
+
+body {
+  background-color: #f1e8dc;
+  width: 80%;
+  max-width:  1100px;
+  margin: 0 auto;
+  h1, h2, h3 {
+    font-family: $header;
+  }
+  a {
+    color: $green;
+    &:hover {
+      color: $light-green;
+    }
+  }
+}
