@@ -51,24 +51,24 @@ body {
 .main h3, .preamble h3 {
   color: #283325;
   font-size: 16px;
-  padding-top: 50px;
   margin-bottom: 0px;
   padding-right: 10%;
+  padding-top: 32px;
   text-align: center;
   background-image: url("../img/straight-ribbon.png");
   background-repeat: no-repeat;
   background-position: 42% 28%;
-  height: 100px; }
+  height: 50px; }
 .main:hover, .preamble:hover {
   background-color: #f2f2f2; }
 @media screen and (max-width: 1461px) {
   .main, .preamble {
     padding-top: 0; } }
 @media screen and (max-width: 500px) {
-  .main h3, .preamble h3 {
-    background-position: 15% 50%;
-    font-size: 15px;
-    padding-left: 20px; } }
+  .main, .preamble {
+    padding: 15px; }
+    .main h3, .preamble h3 {
+      padding-left: 37.5px; } }
 
 .design-archives ul li:last-child {
   margin-top: 10px;
@@ -88,8 +88,8 @@ body {
 
 .sidebar {
   position: relative;
-  bottom: 2100px;
-  right: 17%;
+  bottom: 1600px;
+  right: 15%;
   width: 12%;
   min-width: 200px;
   margin-left: 25px;

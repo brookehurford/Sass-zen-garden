@@ -14,6 +14,7 @@ $bodyFont: 14px;
 $smallDesktop: 1461px;
 $tablet: 950px;
 $mobile: 500px;
+$pixels: 15px;
 
 
 
@@ -28,7 +29,7 @@ $mobile: 500px;
   padding: 3%;
   padding-left: 12%;
   border: 1px solid $border-color;
-  margin-bottom: 25px;
+  margin-bottom: $pixels + 10px;
   @media screen and (max-width: $smallDesktop){
     padding-left: 3%;
   }
@@ -69,7 +70,7 @@ body {
   .summary {
     font-size: $bodyFont;
     text-align: center;
-    line-height: 10px;
+    line-height: $pixels - 5px;
   }
   @media screen and (max-width: $tablet) {
     header {
@@ -81,7 +82,7 @@ body {
       }
     }
     .summary {
-      line-height: 20px;
+      line-height: $pixels + 5px;
     }
   }
 }
@@ -96,14 +97,14 @@ body {
   h3 {
     color: $border-color;
     font-size: $bodyFont + 2px;
-    padding-top: 50px;
     margin-bottom: 0px;
     padding-right: 10%;
+    padding-top: 32px;
     text-align: center;
     background-image: url("../img/straight-ribbon.png");
     background-repeat: no-repeat;
     background-position: 42% 28%;
-    height: 100px;
+    height: 50px;
   }
   &:hover {
     background-color: lighten(black, 95%);
@@ -112,10 +113,9 @@ body {
     padding-top: 0;
   }
   @media screen and (max-width: $mobile) {
+    padding: $pixels ;
     h3 {
-      background-position: 15% 50%;
-      font-size: $bodyFont + 1px;
-      padding-left: 20px;
+      padding-left: $pixels * 2.5;
     }
   }
 }
@@ -141,14 +141,14 @@ body {
 
 .sidebar {
   position: relative;
-  bottom: 2100px;
-  right:17%;
+  bottom: 1600px;
+  right:15%;
   width: 12%;
   min-width: 200px;
-  margin-left: 25px;
+  margin-left: $pixels + 10px;
   background-color: transparentize($green, .1);
   padding: 1.5%;
-  border-radius: 15px;
+  border-radius: $pixels;
   box-shadow: 3px 3px 26px 0px rgba(40,51,37,0.5);
   ul {
     padding-left: 5px;
